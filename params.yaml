@@ -2,8 +2,21 @@ data:
   raw_data_link: https://raw.githubusercontent.com/jslhost/dataset_repo/refs/heads/main/Churn_Modelling.csv
   raw_dataset_path: data/raw_dataset.csv
   clean_dataset_path: data/clean_dataset.csv
+  train_dataset_path: data/train.csv
+  test_dataset_path: data/test.csv
   columns_to_drop:
     - RowNumber
     - CustomerId
+    - Surname  
+  target: Exited
+
+split:
+  test_size: 0.2
+  random_state: 42
+
 model:
-  path: model.pkl     
+  path: model.pkl
+  n_estimators: 100
+  max_depth: 5
+  random_state: 42  
+  preprocessor_path: preprocessor.pkl 
