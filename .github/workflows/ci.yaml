@@ -22,15 +22,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: user/app:latest
-Be careful because any file mutation in the steps that precede the build step will be ignored, including processing of the .dockerignore file since the context is based on the Git reference. However, you can use the Path context using the context input alongside the actions/checkout action to remove this restriction.
-
-Default Git context can also be provided using the Handlebars template expression {{defaultContext}}. Here we can use it to provide a subdirectory to the default Git context:
-
-      -
-        name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: "{{defaultContext}}:mysubdir"
-          push: true
-          tags: dostinet/churn-api:latest
+          tags:  dostinet/churn-api:latest
